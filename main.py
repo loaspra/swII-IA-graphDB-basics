@@ -1,8 +1,13 @@
-from scripts.TursoClient import TursoClient
+from scripts.PsycoClient import PostgresClient
 
 # Usage example
-t_client = TursoClient()
+t_client = PostgresClient()
 t_client.connect_to_database()
-# t_client.create_tables()
-# t_client.insert_data()
-t_client.consult_table_data("movies")
+result = t_client.consult_table_data("movies")
+resultLinks = t_client.consult_table_data("links")
+resultRatings = t_client.consult_table_data("ratings")
+resultTags = t_client.consult_table_data("tags")
+print(result)
+print(resultLinks)
+print(resultRatings)
+print(resultTags)

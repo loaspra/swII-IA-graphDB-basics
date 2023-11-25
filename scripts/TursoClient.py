@@ -67,7 +67,7 @@ class TursoClient:
             statements = []
             values = []
             for row in tqdm(df_table.itertuples(index=False)):
-                values.append([str(value) for value in row])
+                values.append([value for value in row])
                 if len(values) == 100:  # Batch size
                     statement = f"INSERT INTO {table} VALUES (?, ?, ?, ?)"  # Modify the statement accordingly
                     statements.append(libsql_client.Statement(statement, values))
