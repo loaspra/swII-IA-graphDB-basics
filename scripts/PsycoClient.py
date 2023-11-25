@@ -69,12 +69,11 @@ class PostgresClient:
             cursor.execute(query)
         self.connection.commit()
 
-    def insert_data(self):
-        tables = ["links", "movies", "ratings", "tags"]
+    def insert_csv_data(self, tables, path):
 
         cursor = self.connection.cursor()
         for table in tables:
-            df_table = pd.read_csv(f"./data/ml-latest-small/{table}.csv")
+            df_table = pd.read_csv(f"{path}{table}.csv")
             columns = ", ".join(df_table.columns)
             values = []
             for row in tqdm(df_table.itertuples(index=False)):
@@ -101,3 +100,9 @@ class PostgresClient:
         cursor.execute(query)
         result_set = cursor.fetchall()
         return result_set
+    
+    def safe_execute(self, query):
+        cursor = self.connection.cursor()
+        cursor.execute(query)
+        self.connection.commit()
+        return cursor.fetchall()
