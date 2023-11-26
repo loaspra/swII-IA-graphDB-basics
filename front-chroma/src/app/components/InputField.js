@@ -12,7 +12,7 @@ const InputField = () => {
       type="text"
       value={value}
       onChange={handleChange}
-      placeholder="Enter a movie name"
+      placeholder="What would you like to watch?"
       className="neumorphism-input"
     />
   );

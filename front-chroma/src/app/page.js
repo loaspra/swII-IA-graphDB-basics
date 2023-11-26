@@ -1,15 +1,14 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { useState } from 'react'
-import styles from './page.module.css'
-import InputField from './components/InputField'
-import MovieList from './components/MovieList'
-import SubmitButton from './components/SubmitButton'
+import Image from "next/image";
+import { useState } from "react";
+import styles from "./globals.css";
+import InputField from "./components/InputField";
+import MovieList from "./components/MovieList";
+import SubmitButton from "./components/SubmitButton";
 
 export default function Home() {
-
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [movies, setMovies] = useState([]);
 
   const handleInputChange = (event) => {
@@ -34,17 +33,17 @@ export default function Home() {
       .then((data) => data.results)
       .catch((error) => console.log(error));
   };
-  
+
   return (
-    <main className={styles.main}>
-      <div className={styles.code}>
-        <p>
-          This: GPT4ALL + Vectorial database
-        </p>
+    <main className="wrapper">
+      <div className="container">
+        <div>
+          <h1>This: GPT4ALL + Vectorial database</h1>
+        </div>
+        <InputField value={input} onChange={handleInputChange} />
+        <SubmitButton onClick={handleButtonClick} className="btn" />
+        {movies.length > 0 && <MovieList movies={movies} />}
       </div>
-      <InputField value={input} onChange={handleInputChange} />
-      <SubmitButton onClick={handleButtonClick} />
-      {movies.length > 0 && <MovieList movies={movies} />}
     </main>
-  )
+  );
 }
