@@ -30,7 +30,7 @@ SQL_tags_cat = "SELECT movieId, STRING_AGG(tag, ' ') FROM tags GROUP BY movieId"
 SQL_movies = "SELECT movieId as mainMovieId, title, genres FROM movies"
 
 QUERY = f"""
-SELECT mvTcat.title, mvTcat.genres, rate.AVG_RATING, mvTcat.STRING_AGG
+SELECT mvTcat.mainMovieId, mvTcat.title, mvTcat.genres, rate.AVG_RATING, mvTcat.STRING_AGG
 FROM
 (
     ({SQL_movies}) mv

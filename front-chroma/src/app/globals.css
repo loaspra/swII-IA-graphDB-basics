@@ -1,0 +1,121 @@
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 15, 17, 50;
+
+  --primary-glow: linear-gradient(
+    rgb(0, 0, 30),
+    rgb(0, 173, 241, 0.55)
+  );
+
+  --secondary-glow: radial-gradient(
+    rgb(0, 173, 241, 0.55),
+    rgb(0, 0, 30)
+  );
+
+  --tile-start-rgb: 239, 245, 249;
+  --tile-end-rgb: 228, 232, 233;
+  --tile-border: conic-gradient(
+    #00000080,
+    #00000040,
+    #00000030,
+    #00000020,
+    #00000010,
+    #00000010,
+    #00000080
+  );
+
+  --callout-rgb: 238, 240, 241;
+  --callout-border-rgb: 172, 175, 176;
+  --card-rgb: 180, 185, 188;
+  --card-border-rgb: 131, 134, 135;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.neumorphism-input {
+  background: #e0e0e0;
+  border: none;
+  padding: 20px 40px; /* Increased padding */
+  margin: 10px;
+  border-radius: 15px; /* Increased border radius */
+  box-shadow: -5px -5px 10px #ffffff, 5px 5px 10px #babecc;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  font-size: 18px; /* Increased font size */
+}
+
+.neumorphism-input:focus {
+  box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px #babecc;
+}
+
+.submit-button {
+  background: var(--primary-glow); /* Use --primary-glow variable for the background */
+  border: none;
+  padding: 50px 55px;
+  margin: 10px;
+  border-radius: 15px;
+  box-shadow: -5px -5px 10px #ea7575, 5px 5px 10px #5364a3;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  cursor: pointer;
+}
+
+.submit-button:active {
+  box-shadow: inset -2px -2px 5px rgb(var(--secondary-glow)), inset 2px 2px 5px #babecc;
+  background: var(--secondary-glow); /* Use --primary-glow variable for the background */
+  transition: all 0.2s ease-in-out;
+}
+
+.movie-list {
+  background: #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: -5px -5px 10px #ffffff, 5px 5px 10px #babecc;
+  margin: 20px;
+}
+
+.movie-item {
+  background: #e0e0e0;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: inset -2px -2px 5px #ffffff, inset 2px 2px 5px #babecc;
+  margin: 10px 0;
+}
